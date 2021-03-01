@@ -1,17 +1,50 @@
+from keep_alive import keep_alive
 import discord
+from discord.ext import commands
 import os
-
-client = discord.Client()
+import asyncio
+import random
+from random import seed
+from random import randint
+client = commands.Bot(command_prefix='$')
+ppsize = ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100 wat an absolut madlad", "sadnessanddespairwhydidyouusethiscommand", "69% noice"]
 
 @client.event
 async def on_ready():
-    print('We have logged in as {0.user}'.format(client))
+   print('Bot online!')
+
+ # THIS FUNCTION WILL SEND A DM WITH THE AUTHORS NAME.
+@client.command()
+async def dm(ctx):
+     await ctx.author.send('This is your private DM with Gamers Crew')
 
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$hello'):
-        await message.channel.send('Hello!')
+    if message.content.startswith('$help'):
+        await message.channel.send('Hello! I am a bot made for Gamers Crew. Try out other commands - $who, $yee, $luvluv?, $code?')
+    
+    if message.content.startswith('$kill'):
+        await message.channel.send('imayeesomeonerightnowimanuguryyyyyy')
+    
+    if message.content.startswith('$who'):
+        await message.channel.send('I am a bot made for Gamers Crew')
+    
+    if message.content.startswith('$yee'):
+        await message.channel.send('yee..')
+
+    if message.content.startswith('$luvluv?'):
+        await message.channel.send('iluvluvyou:))')
+    
+    if message.content.startswith('$code'):
+        await message.channel.send('https://github.com/zahandob/CodeForBot/blob/main/Code')
+    
+    if message.content.startswith('$pp'):
+      await message.channel.send('your pp size is....')
+      value = randint(1, 100)
+      await message.channel.send((value)'cm long you dumpoopoo')
+ 
+keep_alive()
 client.run(os.getenv('TOKEN'))
