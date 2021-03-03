@@ -1,3 +1,5 @@
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#IMPORTS
 from keep_alive import keep_alive
 import discord
 from discord.ext import commands
@@ -6,25 +8,26 @@ import asyncio
 import random
 from random import seed
 from random import randint
+import sys
+from colorama import init
+from termcolor import cprint 
+from pyfiglet import figlet_format
+from replit import db
+value = str
 client = commands.Bot(command_prefix='$')
-ppsize = ["10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%", "100 wat an absolut madlad", "sadnessanddespairwhydidyouusethiscommand", "69% noice"]
-
 @client.event
 async def on_ready():
-   print('Bot online!')
-
- # THIS FUNCTION WILL SEND A DM WITH THE AUTHORS NAME.
-@client.command()
-async def dm(ctx):
-     await ctx.author.send('This is your private DM with Gamers Crew')
-
+   print('Botwa online')
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$help'):
-        await message.channel.send('Hello! I am a bot made for Gamers Crew. Try out other commands - $who, $yee, $luvluv?, $code?')
+
+    if message.content.startswith('$commands'):
+        await message.channel.send('Hello! I am a bot made for Gamers Crew. Try out other commands - $who, $yee, $luvluv?, $code?, $boing, $pp, $gamer, $thot, $simp , And More Coming !')
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#Wierd Commands
     
     if message.content.startswith('$kill'):
         await message.channel.send('imayeesomeonerightnowimanuguryyyyyy')
@@ -34,17 +37,47 @@ async def on_message(message):
     
     if message.content.startswith('$yee'):
         await message.channel.send('yee..')
+    
+    if message.content.startswith('$dt'):
+        await message.channel.send('Gamers Crew Bot is going into downtime please wait')
+
+    if message.content.startswith('$boing'):
+        await message.channel.send('bing')
 
     if message.content.startswith('$luvluv?'):
         await message.channel.send('iluvluvyou:))')
     
     if message.content.startswith('$code'):
-        await message.channel.send('https://github.com/zahandob/CodeForBot/blob/main/Code')
-    
+        await message.channel.send('nice try')
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#Random Commands   
     if message.content.startswith('$pp'):
-      await message.channel.send('your pp size is....')
-      value = randint(1, 100)
-      await message.channel.send((value)'cm long you dumpoopoo')
- 
+      valuepp = randint(1, 100)
+      await message.channel.send('your pp size is ' + str(valuepp) + ' cm long')
+    
+    if message.content.startswith('$gamer'):
+      valuegamur = randint(1, 100)
+      await message.channel.send('you are ' + str(valuegamur) + '% epic gamur')
+
+    if message.content.startswith('$thot'):
+      valuethot = randint(1, 100)
+      await message.channel.send('you are ' + str(valuethot) + '% thot')
+    
+    if message.content.startswith('$simp'):
+      valuesimp = randint(1, 100)
+      await message.channel.send('you are ' + str(valuesimp) + '% simp')
+
+    if message.content.startswith('$weeb'):
+      valueweeb = randint(1, 100)
+      await message.channel.send('you are ' + str(valueweeb) + '% weeb')
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#Not Working commands
+
+    if message.content.startswith('$asc'):
+      acitext = message.split("%")
+      await message.channel.send(acitext)
+             
+#%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+#Token
 keep_alive()
 client.run(os.getenv('TOKEN'))
