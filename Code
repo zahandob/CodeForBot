@@ -15,40 +15,36 @@ from pyfiglet import figlet_format
 from replit import db
 value = str
 client = commands.Bot(command_prefix='$')
+
 @client.event
 async def on_ready():
    print('Botwa online')
+
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
-
     if message.content.startswith('$commands'):
-        await message.channel.send('Hello! I am a bot made for Gamers Crew. Try out other commands - $who, $yee, $luvluv?, $code?, $boing, $pp, $gamer, $thot, $simp , And More Coming !')
+        await message.channel.send('I am a bot made by za hando#6610. Try out other commands - $who, $yee, $luvluv, $code, $boing, $pp, $gamer, $thot, $simp ,$lmao And More Coming !')
+
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#Wierd Commands
-    
-    if message.content.startswith('$kill'):
-        await message.channel.send('imayeesomeonerightnowimanuguryyyyyy')
-    
+#Shiet Commands  
     if message.content.startswith('$who'):
-        await message.channel.send('I am a bot made for Gamers Crew')
+        await message.channel.send('I am a bot made by zahando#6610')
     
     if message.content.startswith('$yee'):
         await message.channel.send('yee..')
-    
-    if message.content.startswith('$dt'):
-        await message.channel.send('Gamers Crew Bot is going into downtime please wait')
 
     if message.content.startswith('$boing'):
         await message.channel.send('bing')
 
-    if message.content.startswith('$luvluv?'):
+    if message.content.startswith('$luvluv'):
         await message.channel.send('iluvluvyou:))')
     
     if message.content.startswith('$code'):
-        await message.channel.send('nice try')
+        await message.channel.send('https://github.com/zahandob/CodeForBot/blob/main/Code')
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #Random Commands   
     if message.content.startswith('$pp'):
@@ -71,7 +67,7 @@ async def on_message(message):
       valueweeb = randint(1, 100)
       await message.channel.send('you are ' + str(valueweeb) + '% weeb')
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-#Not Working commands
+#Not Working commands WILL FIX
 
     if message.content.startswith('$asc'):
       acitext = message.split("%")
