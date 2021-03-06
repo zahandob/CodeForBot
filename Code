@@ -2,7 +2,6 @@
 #IMPORTS
 from keep_alive import keep_alive
 import discord
-
 from PIL import Image, ImageDraw, ImageFont
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
@@ -19,25 +18,30 @@ from pyfiglet import figlet_format
 from replit import db
 value = str
 client = commands.Bot(command_prefix='$')
+apex_packs = ["https://tenor.com/view/gibraltar-gif-19467655", "https://tenor.com/view/pathfinder-dance-pathfinder-dance-apex-legends-dance-moves-gif-14758897", "https://tenor.com/view/wraith-gif-19810315", "https://tenor.com/view/apex-octane-petpet-gif-20176456", "https://tenor.com/view/wattson-apex-legends-apex-legends-fanart-gif-14666874", "https://tenor.com/view/caustic-apex-legends-gif-13448086"]
 @client.event
 async def on_ready():
-   print('Botwa online')
+   print('botwa.exe online')
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
         return
 
     if message.content.startswith('$commands'):
-        await message.channel.send('Hello! I am a bot made for Gamers Crew. Try out other commands - $who, $yee, $code, $boing, $pp, $gamer, $thot, $simp ,$lmao, $gibby, $path, $caustic, $wraith, $octane, $wattson And More Coming !')
+        await message.channel.send('Hello! I am a bot made for Gamers Crew. Try out other commands - $who, $yee, $code, $kill, $boing, $pp, $gamer, $thot, $simp ,$lmao, $gibby, $path, $caustic, $wraith, $octane, $wattson, $suffering, $kill, $what , $apexpack And More Coming !')
+    
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #Shiet Commands
     
     if message.content.startswith('$kill'):
-        await message.channel.send('')
+        await message.channel.send('y dooe')
     
     if message.content.startswith('$lmao'):
         await message.channel.send('l to the m to the a to the o')
-    
+    if message.content.startswith('$rl'):
+        await message.channel.send('https://tenor.com/view/dance-moves-dancing-singer-groovy-gif-17029825')
+
     if message.content.startswith('$who'):
         await message.channel.send('I am a bot made for Gamers Crew')
     
@@ -54,12 +58,13 @@ async def on_message(message):
         await message.channel.send('iluvluvyou:))')
     
     if message.content.startswith('$what'):
-        await message.channel.send('what')
+        await message.channel.send('https://ibb.co/b5hQWfM')
     
     if message.content.startswith('$code'):
         await message.channel.send('https://github.com/zahandob/CodeForBot/blob/main/Code')
     
-    
+    if message.content.startswith('$apexpack'):
+        await message.channel.send(random.choice(apex_packs))
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #Random Commands 
 
@@ -86,8 +91,8 @@ async def on_message(message):
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #Image Commands
 
-    if message.content.startswith('$ap'):
-        await message.channel.send('https://ibb.co/YPm3LnS')
+    if message.content.startswith('$ok'):
+      await message.channel.send('https://ibb.co/b5hQWfM')
 
     if message.content.startswith('$gibby'):
       await message.channel.send('https://tenor.com/view/gibraltar-gif-19467655')
@@ -103,6 +108,9 @@ async def on_message(message):
         await message.channel.send('https://tenor.com/view/wattson-apex-legends-apex-legends-fanart-gif-14666874')
     if message.content.startswith('$caustic'):
         await message.channel.send('https://tenor.com/view/caustic-apex-legends-gif-13448086')
+
+    if message.content.startswith('$suffering'):
+        await message.channel.send('https://tenor.com/view/wraith-apexdance-octane-dance-blood-gif-17961190')
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #Not Working commands
 
