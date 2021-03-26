@@ -18,10 +18,12 @@ from pyfiglet import figlet_format
 from replit import db
 value = str
 client = commands.Bot(command_prefix='$')
-apex_packs = ["https://tenor.com/view/gibraltar-gif-19467655", "https://tenor.com/view/pathfinder-dance-pathfinder-dance-apex-legends-dance-moves-gif-14758897", "https://tenor.com/view/wraith-gif-19810315", "https://tenor.com/view/apex-octane-petpet-gif-20176456", "https://tenor.com/view/wattson-apex-legends-apex-legends-fanart-gif-14666874", "https://tenor.com/view/caustic-apex-legends-gif-13448086"]
+
+apex_packs = ["https://tenor.com/view/gibraltar-gif-19467655", "https://tenor.com/view/pathfinder-dance-pathfinder-dance-apex-legends-dance-moves-gif-14758897", "https://tenor.com/view/wraith-gif-19810315", "https://tenor.com/view/apex-octane-petpet-gif-20176456", "https://tenor.com/view/wattson-apex-legends-apex-legends-fanart-gif-14666874", "https://tenor.com/view/caustic-apex-legends-gif-13448086", "https://tenor.com/view/bloodhound-intens-scaning-gif-20216517", "https://tenor.com/view/apex-legends-n3llywood-apex-legends-apex-banglore-iam-the-cream-gif-17407683", "https://tenor.com/view/apex-crypto-gif-18331470", "https://tenor.com/view/apex-legends-season8-mayhem-fuse-gif-20044963", "https://tenor.com/view/apex-legends-season7-gameplay-trailer-horizon-finisher-gif-19014839", "https://tenor.com/view/lifeline-apex-legends-peace-gif-13448082", "https://tenor.com/view/apex-mirage-you-got-bamboozled-apex-mirage-mirage-apex-gif-20481255", "https://tenor.com/view/apex-legends-season6-rampartv-gif-18141325", "https://tenor.com/view/apex-legends-revenant-shaving-mirror-game-gif-16187610"]
 @client.event
 async def on_ready():
    print('botwa.exe online')
+   await client.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="Gamers Crew"))
 
 @client.event
 async def on_message(message):
@@ -30,16 +32,22 @@ async def on_message(message):
 
     if message.content.startswith('$commands'):
         await message.channel.send('Hello! I am a bot made for Gamers Crew. Try out other commands - $who, $yee, $code, $kill, $boing, $pp, $gamer, $thot, $simp ,$lmao, $gibby, $path, $caustic, $wraith, $octane, $wattson, $suffering, $kill, $what , $apexpack And More Coming !')
-    
+
+
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #Shiet Commands
     
     if message.content.startswith('$kill'):
         await message.channel.send('y dooe')
+    if message.content.startswith('$ass'):
+        await message.channel.send('There is a reason PH Kids isnt a thing.........')
+
+    if message.content.startswith('$cm'):
+        await message.channel.send('ok')
     
     if message.content.startswith('$lmao'):
         await message.channel.send('l to the m to the a to the o')
-    if message.content.startswith('$rl'):
+    if message.content.startswith('$rickroll'):
         await message.channel.send('https://tenor.com/view/dance-moves-dancing-singer-groovy-gif-17029825')
 
     if message.content.startswith('$who'):
@@ -63,8 +71,7 @@ async def on_message(message):
     if message.content.startswith('$code'):
         await message.channel.send('https://github.com/zahandob/CodeForBot/blob/main/Code')
     
-    if message.content.startswith('$apexpack'):
-        await message.channel.send(random.choice(apex_packs))
+    
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #Random Commands 
 
@@ -94,6 +101,9 @@ async def on_message(message):
     if message.content.startswith('$ok'):
       await message.channel.send('https://ibb.co/b5hQWfM')
 
+    if message.content.startswith('$bruh'):
+      await message.channel.send('https://ibb.co/mhkNt46')
+
     if message.content.startswith('$gibby'):
       await message.channel.send('https://tenor.com/view/gibraltar-gif-19467655')
 
@@ -102,22 +112,44 @@ async def on_message(message):
     
     if message.content.startswith('$wraith'):
       await message.channel.send('https://tenor.com/view/wraith-gif-19810315')
+
     if message.content.startswith('$octane'):
         await message.channel.send('https://tenor.com/view/apex-octane-petpet-gif-20176456')
+
     if message.content.startswith('$wattson'):
         await message.channel.send('https://tenor.com/view/wattson-apex-legends-apex-legends-fanart-gif-14666874')
+
     if message.content.startswith('$caustic'):
         await message.channel.send('https://tenor.com/view/caustic-apex-legends-gif-13448086')
+    
+    if message.content.startswith('$mirage'):
+        await message.channel.send('https://tenor.com/view/apex-mirage-you-got-bamboozled-apex-mirage-mirage-apex-gif-20481255')
+    
+    if message.content.startswith('$lifeline'):
+        await message.channel.send('https://tenor.com/view/lifeline-apex-legends-peace-gif-13448082')
+
+    if message.content.startswith('$haxer'):
+        await message.channel.send('https://tenor.com/view/apex-crypto-gif-18331470')
 
     if message.content.startswith('$suffering'):
         await message.channel.send('https://tenor.com/view/wraith-apexdance-octane-dance-blood-gif-17961190')
+    if message.content.startswith('$rampart'):
+        await message.channel.send('https://tenor.com/view/apex-legends-season6-rampartv-gif-18141325')
+
+    if message.content.startswith('$fbi'):
+        await message.channel.send('https://i.imgur.com/7azMDju.gif')
+    
+    if message.content.startswith('$apexpack'):
+        await message.channel.send(random.choice(apex_packs))
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #Not Working commands
-
-    if message.content.startswith('$asc'):
-      acitext = message.split("%")
-      await message.channel.send(acitext)
-             
+@client.command(name='create-channel')
+async def create_channel(ctx, channel_name='Gamers Crew Channel'):
+    guild = ctx.guild
+    existing_channel = discord.utils.get(guild.channels, name=channel_name)
+    if not existing_channel:
+        print(f'Creating a new channel: {channel_name}')
+        await guild.create_text_channel(channel_name)          
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #Token
 keep_alive()
